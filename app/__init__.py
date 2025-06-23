@@ -1,6 +1,6 @@
 from flask import Flask
 from app.extensions import db, migrate, bcrypt
-from app.middleware.cors_middleware import init_cors  # ✅ Add this
+from app.middleware.cors_middleware import init_cors  
 
 def create_app():
     app = Flask(__name__)

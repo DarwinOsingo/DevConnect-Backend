@@ -17,9 +17,9 @@ def generate_token(user):
     }
     return jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
-# ===========================
+
 # REGISTER
-# ===========================
+
 @auth_bp.route('/register', methods=['POST'])
 def register():
     try:
@@ -52,12 +52,12 @@ def register():
         }), 201
 
     except Exception as e:
-        print("🚨 Registration error:", e)
+        print(" Registration error:", e)
         return jsonify({"message": "Server error during registration"}), 500
 
-# ===========================
+
 # LOGIN
-# ===========================
+
 @auth_bp.route('/login', methods=['POST'])
 def login():
     try:
@@ -80,12 +80,11 @@ def login():
         }), 200
 
     except Exception as e:
-        print("🚨 Login error:", e)
+        print(" Login error:", e)
         return jsonify({"message": "Server error during login"}), 500
 
-# ===========================
 # VERIFY TOKEN
-# ===========================
+
 @auth_bp.route('/verify-token', methods=['GET'])
 def verify_token():
     auth_header = request.headers.get('Authorization')
